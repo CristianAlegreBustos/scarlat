@@ -1,2 +1,2 @@
-import ScarlatChatPage from "@/components/ScarlatChatPage/ScarlatChatPage";
+import ScarlatChatPage from "@/landings/ScarlatChatPage/ScarlatChatPage";
 export default ScarlatChatPage
