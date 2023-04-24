@@ -1,15 +1,10 @@
-// base.scss
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
 // Variables personalizadas
 $background-color: #1C1C1C;
 $red-metallic: #9A3334;
 $gold-metallic: #FFD700;
 $accent-blue: #0F7AD8;
 
-body {
+.body {
     background-color: $background-color;
     color: #FFFFFF;
   }
