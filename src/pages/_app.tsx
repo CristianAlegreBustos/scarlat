@@ -1,5 +1,6 @@
 import "src/styles/index.scss"
 import "src/styles/indexTailwind.css"
+
 import { useRouter } from 'next/router'
 import { AppProps } from "next/app";
 

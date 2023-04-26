@@ -1,3 +1,10 @@
-.chat-container {
-    border: 2px solid $red-metallic;
-  }
+@import 'src/styles/index.scss';
+.root{
+  background-image: radial-gradient(circle, $rich-black, $background-color);
+    color: white;
+}
+
+
+// .chat-container {
+//     border: 2px solid $red-metallic;
+//   }
