@@ -12,7 +12,7 @@ const AreaChat = () => {
     e.preventDefault();
     if (inputMessage.trim()) {
       try {
-        const completion = await postQuestiontoOpenIA(inputMessage);
+        const completion = await postQuestiontoOpenIA(inputMessage,'/api/chat');
         setMessages([
           ...messages,
           {
