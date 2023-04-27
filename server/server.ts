@@ -37,7 +37,7 @@ const api = express();
 api.use(bodyParser.json());
 api.use(cors());
 
-api.post("/", async (req, res) => {
+api.post("/api/chat", async (req, res) => {
     const { messages } = req.body;
     console.log(messages);
     
