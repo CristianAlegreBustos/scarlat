@@ -5,9 +5,10 @@ interface TextEntryProps {
   handleSendMessage: (e: React.FormEvent<HTMLFormElement>) => void;
   inputMessage: string;
   setInputMessage: React.Dispatch<React.SetStateAction<string>>;
+  isLoading:boolean;
 }
 
-const TextEntry = ({ handleSendMessage, inputMessage, setInputMessage }: TextEntryProps) => {
+const TextEntry = ({ handleSendMessage, inputMessage, setInputMessage,isLoading }: TextEntryProps) => {
   return (
     <>
       {/* Entrada de texto */}
@@ -19,7 +20,7 @@ const TextEntry = ({ handleSendMessage, inputMessage, setInputMessage }: TextEnt
           className="w-full rounded py-2 px-4 bg-gray-900 h-10 text-xl"
           placeholder="Escribe tu pregunta..."
         />
-        <SendButton />
+        <SendButton isLoading={isLoading}/>
       </form>
     </>
   );
