@@ -34,7 +34,7 @@ const AreaChat = () => {
   };
 
   return (
-    <div className={cn("w-3/4 h-full flex flex-col p-4", css.Wrapper_chat)}>
+    <div className={cn("w-3/4 h-full flex flex-col p-4 text-xl", css.Wrapper_chat)}>
       <ConversationArea messages={messages} />
       <TextEntry
         handleSendMessage={handleSendMessage}

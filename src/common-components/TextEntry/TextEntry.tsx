@@ -16,7 +16,7 @@ const TextEntry = ({ handleSendMessage, inputMessage, setInputMessage }: TextEnt
           type="text"
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
-          className="w-full rounded py-2 px-4 bg-gray-900"
+          className="w-full rounded py-2 px-4 bg-gray-900 h-10 text-xl"
           placeholder="Escribe tu pregunta..."
         />
         <SendButton />

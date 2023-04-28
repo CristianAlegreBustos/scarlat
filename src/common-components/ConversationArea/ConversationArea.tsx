@@ -3,7 +3,7 @@ import css from "./ConversationArea.module.scss";
 
 const ConversationArea: React.FC<ConversationAreaProps> = ({ messages }) => {
   return (
-    <div className={cn("flex-grow overflow-y-auto bg-gray-800 p-4 rounded", css.dialogue)}>
+    <div className={cn("relative flex w-[calc(100%-50px)] flex-col gap-1 md:gap-3 lg:w-[calc(100%-115px)] text-xl", css.dialogue)}>
     {messages.map((message, index) => (
       <div
         key={index}
