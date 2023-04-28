@@ -3,7 +3,8 @@ import { Configuration, OpenAIApi, CreateCompletionRequest } from 'openai';
 
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  organization: process.env.ORGANIZATION,
+  apiKey: process.env.API_OPENIA_KEY
 });
 const openai = new OpenAIApi(configuration);
 
@@ -22,8 +23,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
       res.status(200).json(response.data);
     } catch (error) {
-      console.log(error)
       if (error instanceof Error) {
+        console.log(error)
         res.status(500).json({ error: error.message });
       } else {
         res.status(500).json({ error: "An unknown error occurred" });
