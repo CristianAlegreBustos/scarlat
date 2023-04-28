@@ -1,6 +1,6 @@
 import { useState } from "react";
 import cn from "classnames";
-import css from "./AreaChat.module.scss"
+import css from "./AreaChat.module.scss";
 import TextEntry from "../TextEntry/TextEntry";
 import ConversationArea from "../ConversationArea/ConversationArea";
 import postQuestiontoOpenIA from "@/utilities/postQuestionToOpenIA";
@@ -11,8 +11,9 @@ const AreaChat = () => {
   const handleSendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputMessage.trim()) {
+      console.log(inputMessage);
       try {
-        const completion = await postQuestiontoOpenIA(inputMessage,'/api/chat');
+        const completion = await postQuestiontoOpenIA(inputMessage);
         setMessages([
           ...messages,
           {
@@ -34,17 +35,17 @@ const AreaChat = () => {
       }
     }
   };
-  
-  
+
   return (
-    <div className={cn("w-3/4 h-full flex flex-col p-4",css.Wrapper_chat)}>
-      <ConversationArea messages={messages}/>
+    <div className={cn("w-3/4 h-full flex flex-col p-4", css.Wrapper_chat)}>
+      <ConversationArea messages={messages} />
       <TextEntry
-      handleSendMessage={handleSendMessage}
-      inputMessage={inputMessage}
-      setInputMessage={setInputMessage}/>
+        handleSendMessage={handleSendMessage}
+        inputMessage={inputMessage}
+        setInputMessage={setInputMessage}
+      />
     </div>
   );
 };
 
-export default AreaChat
+export default AreaChat;
