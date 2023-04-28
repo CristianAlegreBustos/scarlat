@@ -1,0 +1,7 @@
+{
+    "watch": ["src"],
+    "ext": "ts",
+    "exec": "ts-node src/server/server_openia.ts",
+    "ignore": ["node_modules"]
+  }
+  

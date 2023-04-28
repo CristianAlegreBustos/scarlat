@@ -1,17 +1,15 @@
-const postQuestiontoOpenIA = async (inputMessage: string) => {
+const postQuestiontoOpenIA = async (inputMessage:string) => {
   try {
-    const response = await fetch("/api/chat", {
-      method: "POST",
+    const response = await fetch('http://localhost:3001', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         messages: [
           {
-            role: "user",
-            content: {
-              text: inputMessage,
-            },
+            role: 'user',
+            content: inputMessage,
           },
         ],
       }),

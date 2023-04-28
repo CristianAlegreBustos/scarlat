@@ -10,30 +10,27 @@ const AreaChat = () => {
   const [inputMessage, setInputMessage] = useState<string>("");
   const handleSendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (inputMessage.trim()) {
-      console.log(inputMessage);
-      try {
-        const completion = await postQuestiontoOpenIA(inputMessage);
-        setMessages([
-          ...messages,
-          {
-            role: 'user',
-            content: {
-              text: inputMessage,
-            },
-          },
-          {
-            role: 'bot',
-            content: {
-              text: completion,
-            },
-          },
-        ]);
-        setInputMessage('');
-      } catch (error) {
-        console.error(error);
-      }
-    }
+    if (!inputMessage.trim()) return;
+
+
+    const response = await postQuestiontoOpenIA(inputMessage);
+
+    setMessages([
+      ...messages,
+      {
+        role: 'user',
+        content: {
+          text: inputMessage,
+        },
+      },
+      {
+        role: 'assistant',
+        content: {
+          text: response.content,
+        },
+      },
+    ]);
+    setInputMessage('');
   };
 
   return (
