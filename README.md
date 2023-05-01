@@ -51,7 +51,7 @@ You can enter the chat interface on `http://localhost:3000/scarlat-chat`.
 
 To learn more about OpenAi api visit the next resources: 
 
-- [Open Ai Documentatio](https://platform.openai.com/docs/introduction)
+- [OpenAI Documentation](https://platform.openai.com/docs/introduction)
 
 To learn more about Next.js, take a look at the following resources:
 
