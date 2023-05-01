@@ -6,7 +6,7 @@ import AreaChat from "@/common-components/AreaChat/AreaChat";
 
 export default function ScarlatChatPage() {
   return (
-      <div className={cn("w-full h-screen flex",css.root)} >
+      <div className={cn("w-full h-screen h-full flex",css.root)} >
         <HistoryQuestions/>
         <AreaChat />
       </div>
