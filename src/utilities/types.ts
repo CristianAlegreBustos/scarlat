@@ -7,6 +7,7 @@ interface Message {
   
   interface ConversationAreaProps {
     messages: Message[];
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   }
 
   interface CodeMessage{
@@ -18,6 +19,7 @@ interface Message {
   interface TextMessage{
     text:string;
     messageRole:string;
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   }
   interface Titles {
     titles: [];

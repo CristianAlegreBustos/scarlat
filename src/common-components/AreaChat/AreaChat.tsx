@@ -30,7 +30,7 @@ const AreaChat = ({ getTitles }: AreaChatProps) => {
       } catch (error) {
         console.error("Error al obtener la respuesta del asistente:", error);
       } finally {
-        setIsLoading(false);
+        
       }
     },
     [inputMessage]
@@ -38,7 +38,7 @@ const AreaChat = ({ getTitles }: AreaChatProps) => {
 
   return (
     <div className={cn("w-3/4 h-screen h-full flex flex-col p-4 text-xl", css.Wrapper_chat)}>
-      <ConversationArea messages={messages} />
+      <ConversationArea messages={messages}  setIsLoading={setIsLoading}  />
       <TextEntry
         handleSendMessage={handleSendMessage}
         inputMessage={inputMessage}

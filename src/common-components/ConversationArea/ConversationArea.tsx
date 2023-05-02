@@ -6,7 +6,7 @@ import CodeMessage from "./components/CodeMessage/CodeMessage";
 import TextMessage from "./components/TextMessage/TextMessage";
 import { detectLanguage } from "./utilities/detectLanguage";
 
-const ConversationArea: React.FC<ConversationAreaProps> = ({ messages }) => {
+const ConversationArea: React.FC<ConversationAreaProps> = ({ messages,setIsLoading }) => {
   return (
     <div
       className={cn(
@@ -27,6 +27,7 @@ const ConversationArea: React.FC<ConversationAreaProps> = ({ messages }) => {
             key={`TextBeforeCode-${index}`}
             text={textBeforeCode}
             messageRole={message.role}
+            setIsLoading={setIsLoading}
           />
         )}
         <CodeMessage
@@ -40,6 +41,7 @@ const ConversationArea: React.FC<ConversationAreaProps> = ({ messages }) => {
             key={`TextAfterCode-${index}`}
             text={textAfterCode}
             messageRole={message.role}
+            setIsLoading={setIsLoading}
           />
         )}
       </div>
@@ -50,6 +52,7 @@ const ConversationArea: React.FC<ConversationAreaProps> = ({ messages }) => {
         key={`TextOnly-${index}`}
         text={message.content.text}
         messageRole={message.role}
+        setIsLoading={setIsLoading}
       />
     );
   }

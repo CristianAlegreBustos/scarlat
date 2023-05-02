@@ -1,5 +1,4 @@
 function isCodeMessage(text:string) {
-    console.log("is code")
     const codeRegex = /```(?:\w*\n)?([\s\S]*?)```/;
     return codeRegex.test(text);
   }
