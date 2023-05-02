@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useAnimatedText from '../../utilities/useAnimatedText';
 
-
-const TextMessage = ({ text, messageRole }: TextMessage) => {
+const TextMessage = ({ text, messageRole, setIsLoading }: TextMessage) => {
   const animationSpeed = 50; // Ajustar este valor para controlar la velocidad de la animación
   const displayText = useAnimatedText(text, animationSpeed);
   const displayTextWithLineBreaks = displayText.split('\n').map((line, index) => (
@@ -11,6 +10,12 @@ const TextMessage = ({ text, messageRole }: TextMessage) => {
       <br />
     </React.Fragment>
   ));
+
+  useEffect(() => {
+    if (messageRole === "assistant") {
+      setIsLoading(false);
+    }
+  }, [messageRole, setIsLoading]);
 
   return (
     <div
@@ -22,6 +27,5 @@ const TextMessage = ({ text, messageRole }: TextMessage) => {
     </div>
   );
 };
-
 
 export default TextMessage;

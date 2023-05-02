@@ -2,3 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+body{
+ background-image: radial-gradient(circle, #060F20, #0D101C);;
+}

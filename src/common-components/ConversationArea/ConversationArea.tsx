@@ -10,7 +10,7 @@ const ConversationArea: React.FC<ConversationAreaProps> = ({ messages,setIsLoadi
   return (
     <div
       className={cn(
-        "relative flex w-[calc(100%-50px)] flex-col gap-1 md:gap-3 lg:w-[calc(100%-115px)] text-xl",
+        "flex-grow overflow-y-auto bg-gray-800 p-4 rounded text-xl",
         css.dialogue
       )}
     >
