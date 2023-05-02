@@ -19,3 +19,7 @@ interface Message {
     text:string;
     messageRole:string;
   }
+  interface Titles {
+    titles: [];
+  }
+ 

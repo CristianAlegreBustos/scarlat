@@ -1,17 +1,12 @@
+import { useEffect, useState } from "react";
 import cn from "classnames";
 import css from "./ConversationArea.module.scss";
 import { extractCodeContent, isCodeMessage } from "@/utilities/verifyCode";
 import CodeMessage from "./components/CodeMessage/CodeMessage";
 import TextMessage from "./components/TextMessage/TextMessage";
-import hljs from 'highlight.js';
+import { detectLanguage } from "./utilities/detectLanguage";
 
 const ConversationArea: React.FC<ConversationAreaProps> = ({ messages }) => {
-  console.log(messages);
-
-  const detectLanguage = (code:string) => {
-    return hljs.highlightAuto(code).language || "plaintext";
-  };
-
   return (
     <div
       className={cn(
@@ -19,46 +14,47 @@ const ConversationArea: React.FC<ConversationAreaProps> = ({ messages }) => {
         css.dialogue
       )}
     >
-      {messages.map((message, index) => {
-        const isCode = isCodeMessage(message.content.text);
-        const { code, textBeforeCode, textAfterCode } = extractCodeContent(
-          message.content.text
-        );
+{messages.map((message, index) => {
+  const isCode = isCodeMessage(message.content.text);
+  const extractedContent = extractCodeContent(message.content.text);
+  const { code, textBeforeCode, textAfterCode } = extractedContent;
 
-        return (
-          <>
-            {textBeforeCode && (
-              <TextMessage
-                key={`TextBeforeCode-${index}`}
-                text={textBeforeCode}
-                messageRole={message.role}
-              />
-            )}
-            {isCode && (
-              <CodeMessage
-                key={`TextCode-${index}`}
-                code={code}
-                language={detectLanguage(code)}
-                messageRole={message.role}
-              />
-            )}
-            {textAfterCode && (
-              <TextMessage
-                key={`TextAfterCode-${index}`}
-                text={textAfterCode}
-                messageRole={message.role}
-              />
-            )}
-            {!isCode && (
-              <TextMessage
-                key={`TextOnly-${index}`}
-                text={message.content.text}
-                messageRole={message.role}
-              />
-            )}
-          </>
-        );
-      })}
+  if (isCode) {
+    return (
+      <div key={index}>
+        {textBeforeCode && (
+          <TextMessage
+            key={`TextBeforeCode-${index}`}
+            text={textBeforeCode}
+            messageRole={message.role}
+          />
+        )}
+        <CodeMessage
+          key={`TextCode-${index}`}
+          code={code}
+          language={detectLanguage(code)}
+          messageRole={message.role}
+        />
+        {textAfterCode &&  (
+          <TextMessage
+            key={`TextAfterCode-${index}`}
+            text={textAfterCode}
+            messageRole={message.role}
+          />
+        )}
+      </div>
+    );
+  } else {
+    return (
+      <TextMessage
+        key={`TextOnly-${index}`}
+        text={message.content.text}
+        messageRole={message.role}
+      />
+    );
+  }
+})}
+
     </div>
   );
 };

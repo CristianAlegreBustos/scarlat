@@ -1,6 +1,11 @@
 import cn from "classnames"
 import css from "./HistoryQuestions.module.scss"
-const HistoryQuestions = () => {
+
+interface HistoryProps {
+  Titles: string[];
+}
+const HistoryQuestions = ({Titles}:HistoryProps) => {
+
   return (
     <div className={cn("w-1/4 pl-4 py-4",css.wrapper_questions)}>
       <ul className={css.questions}>
