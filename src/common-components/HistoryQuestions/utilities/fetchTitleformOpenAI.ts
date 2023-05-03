@@ -13,7 +13,7 @@ const detectedLanguage = async (firstMessage: string) => {
     language: string
   ) => {
     const titleResult = await postQuestiontoOpenIA(
-      `Please provide the most appropriate title for the following query in ${language}: Question - ${question} Answer - ${answer}`
+      `¿Que titulo le pondrias al tema de esta conversacion? Solo devuelve el nombre del titulo en el siguiente idioma: ${language}. Question : ${question} Answer : ${answer} `
     );
     return titleResult;
   };

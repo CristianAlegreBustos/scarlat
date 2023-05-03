@@ -3,7 +3,6 @@ interface SendButtonProps {
   isLoading: boolean;
 }
 const SendButton: React.FC<SendButtonProps> = ({ isLoading }) => {
-  console.log(isLoading)
   return (
     <button className="ml-4 bg-amber-500 rounded py-2 px-4" type="submit">
       {isLoading ? (

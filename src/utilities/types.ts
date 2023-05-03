@@ -25,3 +25,16 @@ interface Message {
     titles: [];
   }
  
+  type Conversation = {
+    title: string;
+    messages: Message[];
+  };
+  interface AreaChatProps {
+    conversations: Conversation[];
+  }
+
+  interface HistoryProps {
+    conversations: Conversation[];
+    onConversationClick: (index: number) => void;
+    setActiveConversationIndex:React.Dispatch<React.SetStateAction<number>>;
+  }

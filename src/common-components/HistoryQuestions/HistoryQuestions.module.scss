@@ -1,10 +1,16 @@
-@import 'src/styles/index.scss';
+@import "src/styles/index.scss";
 
-.questions > li{
-    border: 2px solid white;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    font-weight: 500;
-    padding: 3px;
-    text-align: center;
-  }
+.questions > li {
+  border: 2px solid white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  padding: 3px;
+  text-align: center;
+}
+.title {
+  opacity: 1;
+  height: auto;
+  transform: none;
+  transform-origin: 50% 50% 0px;
+}

@@ -4,7 +4,14 @@
     color: white;
 }
 
-
+.questions > li{
+    border: 2px solid white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    padding: 3px;
+    text-align: center;
+  }
 // .chat-container {
 //     border: 2px solid $red-metallic;
 //   }

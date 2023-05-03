@@ -35,7 +35,7 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-
+```
 ## Getting Started - Chat Interface
 
 Second, run the OpenAI server
