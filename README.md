@@ -47,6 +47,21 @@ node src/server/server_openia.js
 
 You can enter the chat interface on `http://localhost:3000/scarlat-chat`.
 
+## Other Instructions
+
+The server_openia is prepared to received differents instruccion or profile. The only you need to do is create a file in the same folder than server_openia.js called instructions.js 
+
+```bash
+const instructions = {
+    'profile1': 'You are a personal assitant',
+    'language_detection': 'You are an assistant to help with language detection.',
+    ## add more profile here
+  };
+
+  export default instructions
+```
+The gpt-4 model follows more strictly the instructions that you pass through the system
+
 ## Learn More
 
 To learn more about OpenAi api visit the next resources: 

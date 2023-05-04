@@ -27,8 +27,8 @@ api.post('/', async (req, res) => {
   const instruction = instructions[topic] || 'You are a general-purpose assistant.';
   console.log(instruction)
   const completion = await openai.createChatCompletion({
-    model: 'gpt-4',
-    temperature: 0,
+    model: 'gpt-3.5-turbo',
+    temperature: 1,
     messages: [
       {
         role: 'system',
