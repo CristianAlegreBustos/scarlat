@@ -1,12 +1,9 @@
-// Debes agregar ".js" al final de los módulos que importes.
-import { createServer } from 'http';
-import { parse } from 'url';
 import { Configuration, OpenAIApi } from 'openai';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
-
+import instructions from "./instructions.js"
 dotenv.config();
 
 const configuration = new Configuration({
@@ -21,19 +18,21 @@ api.use(bodyParser.json());
 api.use(cors());
 
 api.post('/', async (req, res) => {
-  const { messages } = req.body;
-
+  const { messages, topic } = req.body;
+  console.log(messages)
   if (!Array.isArray(messages)) {
     return res.status(400).json({ error: 'messages must be an array' });
   }
 
+  const instruction = instructions[topic] || 'You are a general-purpose assistant.';
+  console.log(instruction)
   const completion = await openai.createChatCompletion({
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-4',
+    temperature: 0,
     messages: [
       {
         role: 'system',
-        content:
-          'You are an assistant to answer questions about Personal Pay app',
+        content: instruction,
       },
       ...messages,
     ],

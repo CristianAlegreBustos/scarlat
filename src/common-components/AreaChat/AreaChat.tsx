@@ -31,7 +31,7 @@ const AreaChat = ({ messages, setMessages,getTitles,conversations,activeConversa
       addMessage("user", inputMessage, setMessages);
 
       try {
-        const response = await postQuestiontoOpenIA(inputMessage);
+        const response = await postQuestiontoOpenIA(inputMessage,"personal_pay");
         addMessage("assistant", response.content, setMessages);
         if (messages.length === 0) {
           // This is the first message in a new conversation

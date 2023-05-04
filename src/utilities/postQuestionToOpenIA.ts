@@ -1,4 +1,4 @@
-const postQuestiontoOpenIA = async (inputMessage:string) => {
+const postQuestiontoOpenIA = async (inputMessage: string, topic: string) => {
   try {
     const response = await fetch('http://localhost:3001', {
       method: 'POST',
@@ -6,6 +6,7 @@ const postQuestiontoOpenIA = async (inputMessage:string) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        topic: topic, // Aquí es donde pasamos el tema a la solicitud.
         messages: [
           {
             role: 'user',
@@ -27,3 +28,4 @@ const postQuestiontoOpenIA = async (inputMessage:string) => {
 };
 
 export default postQuestiontoOpenIA;
+
