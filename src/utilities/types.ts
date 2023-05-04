@@ -35,6 +35,13 @@ interface Message {
 
   interface HistoryProps {
     conversations: Conversation[];
-    onConversationClick: (index: number) => void;
     setActiveConversationIndex:React.Dispatch<React.SetStateAction<number>>;
+    onDeleteConversation: (index: number) => void;
+    onEditConversationTitle: (index: number, newTitle: string) => void;
+  }
+
+  interface IconButtonProps {
+    icon: React.ReactNode;
+    onClick: () => void;
+    className?: string;
   }

@@ -28,12 +28,20 @@ export default function ScarlatChatPage() {
     ]);
   };
 
-  function handleConversationClick(index: number) {
-    setMessages(conversations[index].messages);
-  }
-
   const handleAddNewChat = () => {
     setActiveConversationIndex(conversations.length);
+  };
+
+  const handleDeleteConversation = (index: number) => {
+    setConversations((prevConversations) =>
+      prevConversations.filter((_, i) => i !== index)
+    );
+  };
+
+  const handleEditConversationTitle = (index: number, newTitle: string) => {
+    setConversations((prevConversations) =>
+      prevConversations.map((conv, i) => (i === index ? { ...conv, title: newTitle } : conv))
+    );
   };
 
   return (
@@ -42,8 +50,9 @@ export default function ScarlatChatPage() {
         <NewChatButton onClick={handleAddNewChat} />
         <HistoryQuestions
           conversations={conversations}
-          onConversationClick={handleConversationClick}
-          setActiveConversationIndex={setActiveConversationIndex} // Agrega esta línea
+          setActiveConversationIndex={setActiveConversationIndex}
+          onDeleteConversation={handleDeleteConversation} 
+          onEditConversationTitle={handleEditConversationTitle} 
         />
       </div>
       <AreaChat
