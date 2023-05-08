@@ -1,5 +1,6 @@
-import SendButton from "../SendButton/SendButton";
 import React from "react";
+import NormalButton from "../Buttons/NormalButton/NormalButton";
+
 
 interface TextEntryProps {
   handleSendMessage: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -20,7 +21,7 @@ const TextEntry = ({ handleSendMessage, inputMessage, setInputMessage,isLoading 
           className="w-full rounded py-2 px-4 bg-gray-900 h-10 text-xl"
           placeholder="Escribe tu pregunta..."
         />
-        <SendButton isLoading={isLoading}/>
+        <NormalButton text={"Enviar"} isLoading={isLoading}/>
       </form>
     </>
   );

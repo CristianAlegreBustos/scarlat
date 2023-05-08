@@ -36,7 +36,7 @@ yarn dev
 # or
 pnpm dev
 ```
-## Getting Started - Chat Interface
+## Getting Started - Chat Server
 
 Second, run the OpenAI server
 

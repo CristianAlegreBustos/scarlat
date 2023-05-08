@@ -8,6 +8,8 @@ interface Message {
   interface ConversationAreaProps {
     messages: Message[];
     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    setConversations:React.Dispatch<React.SetStateAction<{ title: string; messages: Message[]; }[]>>
+    activeConversationIndex:Number
   }
 
   interface CodeMessage{
@@ -17,9 +19,13 @@ interface Message {
   }
 
   interface TextMessage{
-    text:string;
+    index?:number | null
+    initialText:string;
     messageRole:string;
     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    updateMessage?:(index: number, newText: string)=>void
+    setConversations?:React.Dispatch<React.SetStateAction<{ title: string; messages: Message[]; }[]>>
+    activeConversationIndex?:Number
   }
   interface Titles {
     titles: [];
@@ -41,7 +47,24 @@ interface Message {
   }
 
   interface IconButtonProps {
-    icon: React.ReactNode;
+    icon: React.ReactNode | String;
     onClick: () => void;
     className?: string;
+  }
+  interface AreaChatProps {
+    getTitles: (questions: string, answer: string) => Promise<void>;
+    conversations: Conversation[];
+    activeConversationIndex: number;
+    setConversations: React.Dispatch<
+      React.SetStateAction<{ title: string; messages: Message[] }[]>
+    >;
+  }
+
+  interface AreaChatProps {
+    getTitles: (questions: string, answer: string) => Promise<void>;
+    conversations: Conversation[];
+    activeConversationIndex: number;
+    setConversations: React.Dispatch<
+      React.SetStateAction<{ title: string; messages: Message[] }[]>
+    >;
   }

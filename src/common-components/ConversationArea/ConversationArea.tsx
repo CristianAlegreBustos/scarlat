@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import cn from "classnames";
 import css from "./ConversationArea.module.scss";
 import { extractCodeContent, isCodeMessage } from "@/utilities/verifyCode";
@@ -6,7 +5,8 @@ import CodeMessage from "./components/CodeMessage/CodeMessage";
 import TextMessage from "./components/TextMessage/TextMessage";
 import { detectLanguage } from "./utilities/detectLanguage";
 
-const ConversationArea: React.FC<ConversationAreaProps> = ({ messages,setIsLoading }) => {
+const ConversationArea: React.FC<ConversationAreaProps> = ({ messages,setIsLoading,setConversations,activeConversationIndex}) => {
+
   return (
     <div
       className={cn(
@@ -25,7 +25,7 @@ const ConversationArea: React.FC<ConversationAreaProps> = ({ messages,setIsLoadi
         {textBeforeCode && (
           <TextMessage
             key={`TextBeforeCode-${index}`}
-            text={textBeforeCode}
+            initialText={textBeforeCode}
             messageRole={message.role}
             setIsLoading={setIsLoading}
           />
@@ -39,7 +39,7 @@ const ConversationArea: React.FC<ConversationAreaProps> = ({ messages,setIsLoadi
         {textAfterCode &&  (
           <TextMessage
             key={`TextAfterCode-${index}`}
-            text={textAfterCode}
+            initialText={textAfterCode}
             messageRole={message.role}
             setIsLoading={setIsLoading}
           />
@@ -50,9 +50,12 @@ const ConversationArea: React.FC<ConversationAreaProps> = ({ messages,setIsLoadi
     return (
       <TextMessage
         key={`TextOnly-${index}`}
-        text={message.content.text}
+        index={index}
+        initialText={message.content.text}
         messageRole={message.role}
         setIsLoading={setIsLoading}
+        setConversations={setConversations}
+        activeConversationIndex={activeConversationIndex}
       />
     );
   }

@@ -19,13 +19,12 @@ api.use(cors());
 
 api.post('/', async (req, res) => {
   const { messages, topic } = req.body;
-  console.log(messages)
+console.log(messages)
   if (!Array.isArray(messages)) {
     return res.status(400).json({ error: 'messages must be an array' });
   }
 
   const instruction = instructions[topic] || 'You are a general-purpose assistant.';
-  console.log(instruction)
   const completion = await openai.createChatCompletion({
     model: 'gpt-3.5-turbo',
     temperature: 1,
@@ -37,6 +36,7 @@ api.post('/', async (req, res) => {
       ...messages,
     ],
   });
+  console.log( completion.data.choices[0].message);
   res.json({
     completion: completion.data.choices[0].message,
   });

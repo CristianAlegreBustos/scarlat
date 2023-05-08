@@ -1,5 +1,5 @@
 import React from "react";
-import css from "./IconButton.module.scss"
+import css from "./IconButtons.module.scss"
 import cn from "classnames"
 const IconButton: React.FC<IconButtonProps> = ({ icon, onClick, className }) => {
   return (

@@ -5,7 +5,8 @@ import postQuestiontoOpenIA from "@/utilities/postQuestionToOpenIA";
     answer: string,
   ) => {
     const titleResult = await postQuestiontoOpenIA(
-      `¿Que titulo le pondrias al tema de esta conversacion? Solo devuelve el nombre del titulo en el idioma en que se hace la pregunta. Question : ${question} Answer : ${answer} `,"language_detection"
+      `Por favor, sugiere un título adecuado para el tema de esta conversación, teniendo en cuenta la pregunta y la respuesta proporcionadas. La pregunta es: "${question}", y la respuesta es: "${answer}". Por favor, proporcione el título en el mismo idioma en que se hizo la pregunta.
+      Solo devuelve el titulo`,"language_detection"
     );
     return titleResult;
   };
