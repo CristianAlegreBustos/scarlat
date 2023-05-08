@@ -43,9 +43,6 @@ export default function ScarlatChatPage() {
     );
   };
 
-  useEffect(()=>{
-    console.log(conversations)
-  },[conversations])
   return (
     <div className={cn("w-full h-screen h-full flex", css.root)}>
       <div className={cn("w-1/4 pl-4 py-4", css.wrapper_questions)}>

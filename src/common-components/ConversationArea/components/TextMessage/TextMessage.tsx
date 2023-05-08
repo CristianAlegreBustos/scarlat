@@ -3,7 +3,7 @@ import { IconEdit } from "@/common-components/HistoryQuestions/assets/IconEdit";
 import NormalButton from "@/common-components/Buttons/NormalButton/NormalButton";
 import IconButton from "@/common-components/Buttons/IconButtons/IconButtons";
 import DisplayTextWithLineBreaks from "../TextWithLineBreaks/TextWithLineBreaks";
-import postQuestiontoOpenIA from "@/utilities/postQuestionToOpenIA";
+import { updateConversation } from "../../utilities/updateConversation";
 
 const TextMessage = ({
   index,
@@ -20,45 +20,19 @@ const TextMessage = ({
   const handleSave = async (newText: string) => {
     setText(newText);
     setIsEditing(false);
-
+  
     if (
       typeof index === "number" &&
       typeof activeConversationIndex === "number" &&
       setConversations &&
       messageRole === "user"
     ) {
-      const response = await postQuestiontoOpenIA(newText, "personal_pay");
-
-      setConversations((prevConversations) => {
-        const newMessage = [...prevConversations];
-        const assistantMessageIndex = index + 1;
-
-        // Actualizar el mensaje del usuario
-        newMessage[activeConversationIndex].messages[index] = {
-          role: "user",
-          content: { text: newText },
-        };
-
-        // Verificar si existe un mensaje del asistente después del mensaje del usuario y actualizarlo
-        if (
-          newMessage[activeConversationIndex].messages[assistantMessageIndex]
-            ?.role === "assistant"
-        ) {
-          newMessage[activeConversationIndex].messages[assistantMessageIndex] =
-            {
-              role: "assistant",
-              content: { text: response.content },
-            };
-        } else {
-          // Si no hay un mensaje del asistente después del mensaje del usuario, agregarlo
-          newMessage[activeConversationIndex].messages.push({
-            role: "assistant",
-            content: { text: response.content },
-          });
-        }
-
-        return newMessage;
-      });
+      updateConversation(
+        newText,
+        index,
+        activeConversationIndex,
+        setConversations 
+      );
     }
   };
 
