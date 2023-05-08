@@ -1,14 +1,6 @@
 import React from "react";
 import NormalButton from "../Buttons/NormalButton/NormalButton";
 
-
-interface TextEntryProps {
-  handleSendMessage: (e: React.FormEvent<HTMLFormElement>) => void;
-  inputMessage: string;
-  setInputMessage: React.Dispatch<React.SetStateAction<string>>;
-  isLoading:boolean;
-}
-
 const TextEntry = ({ handleSendMessage, inputMessage, setInputMessage,isLoading }: TextEntryProps) => {
   return (
     <>

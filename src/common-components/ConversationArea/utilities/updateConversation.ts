@@ -1,6 +1,6 @@
 import postQuestiontoOpenIA from "@/utilities/postQuestionToOpenIA";
 
-export const updateConversation = async (newText: string,index:number,activeConversationIndex:number, setConversations: (arg: (prevConversations: Conversation[]) => Conversation[]) => void) => {
+export const updateEditedConversation = async (newText: string,index:number,activeConversationIndex:number, setConversations: (arg: (prevConversations: Conversation[]) => Conversation[]) => void) => {
     const response = await postQuestiontoOpenIA(newText, "personal_pay");
   
     setConversations((prevConversations) => {

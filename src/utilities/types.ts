@@ -68,3 +68,22 @@ interface Message {
       React.SetStateAction<{ title: string; messages: Message[] }[]>
     >;
   }
+
+  interface ButtonProps {
+    isLoading?: boolean;
+    text:string;
+    onClick?: () => void;
+  }
+
+  
+interface DisplayTextWithLineBreaksProps {
+  text: string;
+  animationSpeed: number;
+}
+
+interface TextEntryProps {
+  handleSendMessage: (e: React.FormEvent<HTMLFormElement>) => void;
+  inputMessage: string;
+  setInputMessage: React.Dispatch<React.SetStateAction<string>>;
+  isLoading:boolean;
+}

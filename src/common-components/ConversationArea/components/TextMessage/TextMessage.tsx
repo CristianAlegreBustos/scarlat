@@ -3,13 +3,12 @@ import { IconEdit } from "@/common-components/HistoryQuestions/assets/IconEdit";
 import NormalButton from "@/common-components/Buttons/NormalButton/NormalButton";
 import IconButton from "@/common-components/Buttons/IconButtons/IconButtons";
 import DisplayTextWithLineBreaks from "../TextWithLineBreaks/TextWithLineBreaks";
-import { updateConversation } from "../../utilities/updateConversation";
+import { updateEditedConversation } from "../../utilities/updateConversation";
 
 const TextMessage = ({
   index,
   initialText,
   messageRole,
-  setIsLoading,
   setConversations,
   activeConversationIndex,
 }: TextMessage) => {
@@ -27,7 +26,7 @@ const TextMessage = ({
       setConversations &&
       messageRole === "user"
     ) {
-      updateConversation(
+      updateEditedConversation(
         newText,
         index,
         activeConversationIndex,

@@ -4,6 +4,7 @@ import css from "./AreaChat.module.scss";
 import TextEntry from "../TextEntry/TextEntry";
 import ConversationArea from "../ConversationArea/ConversationArea";
 import postQuestiontoOpenIA from "@/utilities/postQuestionToOpenIA";
+import { updateConversations } from "@/common-components/ConversationArea/utilities/updateNewConversations";
 
 const AreaChat = ({
   getTitles,
@@ -43,22 +44,21 @@ const AreaChat = ({
           // This is the first message in a new conversation
           getTitles(inputMessage, response.content);
         }else{
-          setConversations((prevConversations) => {
-            const newMessage = [...prevConversations];
-            newMessage[activeConversationIndex].messages.push({
-              role: "user",
-              content: { text: inputMessage },
-            });
-            return newMessage;
+          updateConversations({
+            action: "addUserMessage",
+            setConversations,
+            conversationIndex:activeConversationIndex,
+            message:inputMessage
           });
-          setConversations((prevConversations) => {
-            const newMessage = [...prevConversations];
-            newMessage[activeConversationIndex].messages.push({
-              role: "assistant",
-              content: { text: response.content },
-            });
-            return newMessage;
+          
+          updateConversations({
+            action: "addAssistantMessage",
+            setConversations,
+            conversationIndex:activeConversationIndex,
+            message:response.content
           });
+          
+          
         }
 
       } catch (error) {

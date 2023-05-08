@@ -2,11 +2,6 @@
 import React, { useMemo } from "react";
 import useAnimatedText from "../../utilities/useAnimatedText";
 
-interface DisplayTextWithLineBreaksProps {
-  text: string;
-  animationSpeed: number;
-}
-
 const DisplayTextWithLineBreaks: React.FC<DisplayTextWithLineBreaksProps> = ({
   text,
   animationSpeed,
