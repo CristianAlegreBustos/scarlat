@@ -51,14 +51,6 @@ interface Message {
     onClick: () => void;
     className?: string;
   }
-  interface AreaChatProps {
-    getTitles: (questions: string, answer: string) => Promise<void>;
-    conversations: Conversation[];
-    activeConversationIndex: number;
-    setConversations: React.Dispatch<
-      React.SetStateAction<{ title: string; messages: Message[] }[]>
-    >;
-  }
 
   interface AreaChatProps {
     getTitles: (questions: string, answer: string) => Promise<void>;
@@ -82,8 +74,10 @@ interface DisplayTextWithLineBreaksProps {
 }
 
 interface TextEntryProps {
-  handleSendMessage: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleSendMessage: (event: React.FormEvent<HTMLFormElement>) => void;
+  setConversations:React.Dispatch<React.SetStateAction<{ title: string; messages: Message[]; }[]>>
   inputMessage: string;
   setInputMessage: React.Dispatch<React.SetStateAction<string>>;
-  isLoading:boolean;
+  isLoading: boolean;
+  activeConversationIndex: number;
 }

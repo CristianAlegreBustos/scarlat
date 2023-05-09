@@ -3,9 +3,9 @@ import css from "./IconButtons.module.scss"
 import cn from "classnames"
 const IconButton: React.FC<IconButtonProps> = ({ icon, onClick, className }) => {
   return (
-    <button className={cn(className,css.button)} onClick={onClick}>
+    <div className={cn(className,css.button)} onClick={onClick}>
       {icon}
-    </button>
+    </div>
   );
 };
 

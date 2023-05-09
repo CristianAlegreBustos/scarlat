@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { IconEdit } from "@/common-components/HistoryQuestions/assets/IconEdit";
+import { IconEdit } from "@/common-components/assets/IconEdit";
 import NormalButton from "@/common-components/Buttons/NormalButton/NormalButton";
 import IconButton from "@/common-components/Buttons/IconButtons/IconButtons";
 import DisplayTextWithLineBreaks from "../TextWithLineBreaks/TextWithLineBreaks";
-import { updateEditedConversation } from "../../utilities/updateConversation";
+import { updateEditedConversation } from "../../utilities/updateEditedConversation";
 
 const TextMessage = ({
   index,
@@ -81,7 +81,7 @@ const TextMessage = ({
             />
           )}
           {messageRole === "user" && (
-            <IconButton icon={<IconEdit />} onClick={toggleEditing} />
+            <IconButton className="cursor-pointer" icon={<IconEdit />} onClick={toggleEditing} />
           )}
         </div>
       )}

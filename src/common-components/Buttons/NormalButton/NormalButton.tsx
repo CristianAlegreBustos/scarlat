@@ -1,6 +1,6 @@
 const NormalButton= ({ isLoading,text,onClick}:ButtonProps) => {
   return (
-    <button onClick={onClick} className="ml-4 bg-amber-500 rounded py-2 px-4" type="submit">
+    <button onClick={onClick} className="bg-amber-500 rounded py-2 px-4" type="submit">
       {isLoading ? (
         <span className="animate-pulse text-2xl">...</span>
       ) : (

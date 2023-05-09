@@ -1,7 +1,7 @@
 import { memo } from "react";
 import cn from "classnames";
 import css from "./HistoryQuestions.module.scss";
-import { IconDelete } from "./assets/IconDelete";
+import { IconDelete } from "../assets/IconDelete";
 import IconButton from "../Buttons/IconButtons/IconButtons";
 
 const HistoryQuestions = ({

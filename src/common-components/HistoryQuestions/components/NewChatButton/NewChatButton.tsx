@@ -1,6 +1,6 @@
 import cn from "classnames"
 import css from "./NewChatButton.module.scss"
-import { IconPlus } from "../../assets/IconPlus";
+import { IconPlus } from "../../../assets/IconPlus";
 
 export const NewChatButton = ({ onClick }: { onClick: () => void }) => {
   return (

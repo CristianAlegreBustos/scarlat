@@ -4,7 +4,8 @@ import css from "./AreaChat.module.scss";
 import TextEntry from "../TextEntry/TextEntry";
 import ConversationArea from "../ConversationArea/ConversationArea";
 import postQuestiontoOpenIA from "@/utilities/postQuestionToOpenIA";
-import { updateConversations } from "@/common-components/ConversationArea/utilities/updateNewConversations";
+import { updateNewConversations } from "../ConversationArea/utilities/updateNewConversations";
+
 
 const AreaChat = ({
   getTitles,
@@ -44,23 +45,20 @@ const AreaChat = ({
           // This is the first message in a new conversation
           getTitles(inputMessage, response.content);
         }else{
-          updateConversations({
+          updateNewConversations({
             action: "addUserMessage",
             setConversations,
             conversationIndex:activeConversationIndex,
             message:inputMessage
           });
           
-          updateConversations({
+          updateNewConversations({
             action: "addAssistantMessage",
             setConversations,
             conversationIndex:activeConversationIndex,
             message:response.content
           });
-          
-          
         }
-
       } catch (error) {
         console.error("Error al obtener la respuesta del asistente:", error);
       } finally {
@@ -88,6 +86,8 @@ const AreaChat = ({
         inputMessage={inputMessage}
         setInputMessage={setInputMessage}
         isLoading={isLoading}
+        setConversations={setConversations}
+        activeConversationIndex={activeConversationIndex}
       />
     </div>
   );
