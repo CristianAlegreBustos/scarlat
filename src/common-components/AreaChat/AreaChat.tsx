@@ -71,7 +71,7 @@ const AreaChat = ({
   return (
     <div
       className={cn(
-        "w-3/4 h-screen h-full flex flex-col p-4 text-xl",
+        "w-full h-screen h-full flex flex-col p-4 text-xl lg:w-3/4",
         css.Wrapper_chat
       )}
     >

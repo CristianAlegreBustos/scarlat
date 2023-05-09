@@ -81,3 +81,9 @@ interface TextEntryProps {
   isLoading: boolean;
   activeConversationIndex: number;
 }
+
+interface NavbarProps {
+  onClickNewChat: () => void;
+  activeConversationTitle: string | undefined;
+  onHamburgerClick: () => void;
+}

@@ -1,6 +1,8 @@
 .wrapper{
+    min-width: 220px;
     border-color: #D4AF37;
     font-weight: 600;
+    flex-grow: 2;
     &:hover{
        background-color: #d4af377e; 
     }

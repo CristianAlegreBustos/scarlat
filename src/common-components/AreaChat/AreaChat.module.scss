@@ -1,0 +1,14 @@
+.Wrapper_chat {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  /* Media query para pantallas lg y superiores */
+  @media (min-width: 1024px) {
+    .Wrapper_chat {
+      width: 100%;
+    }
+  }

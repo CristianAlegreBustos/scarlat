@@ -1,4 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
+import cn from "classnames"
+import css from "./TextMessage.module.scss"
 import { IconEdit } from "@/common-components/assets/IconEdit";
 import NormalButton from "@/common-components/Buttons/NormalButton/NormalButton";
 import IconButton from "@/common-components/Buttons/IconButtons/IconButtons";
@@ -45,7 +47,7 @@ const TextMessage = ({
     }
   };
 
-  const messageClassName = `mb-2 rounded px-3 py-2 relative ${
+  const messageClassName = `mb-2 rounded px-3 py-2 static ${
     messageRole === "user" ? "bg-blue-500" : "bg-white text-black"
   }`;
 
@@ -62,7 +64,7 @@ const TextMessage = ({
             value={text}
             onChange={handleTextChange}
           />
-          <div className="flex justify-center">
+          <div className={cn("flex justify-center",css.Wrapper_buttons)}>
             <NormalButton
               text={"Guardar & Enviar"}
               onClick={() => handleSave(text)}
