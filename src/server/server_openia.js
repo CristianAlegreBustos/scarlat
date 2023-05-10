@@ -27,7 +27,7 @@ console.log(messages)
   const instruction = instructions[topic] || 'You are a general-purpose assistant.';
   const completion = await openai.createChatCompletion({
     model: 'gpt-3.5-turbo',
-    temperature: 1,
+    temperature: 0.5,
     messages: [
       {
         role: 'system',

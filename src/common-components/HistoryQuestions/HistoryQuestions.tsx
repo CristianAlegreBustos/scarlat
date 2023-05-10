@@ -15,8 +15,8 @@ const HistoryQuestions = ({
       {conversations.map((conversation, index) => (
         <li className={cn("relative", css.title)} key={index}>
           <input
-            className="w-full bg-transparent text-white outline-none"
-            defaultValue={conversation.title.content}
+            className="w-full bg-transparent text-white outline-none text-xl"
+            defaultValue={conversation.title}
             onClick={() => setActiveConversationIndex(index)}
           />
           <IconButton

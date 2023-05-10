@@ -32,7 +32,7 @@ interface Message {
   }
  
   type Conversation = {
-    title: string;
+   title: string
     messages: Message[];
   };
   interface AreaChatProps {
@@ -63,14 +63,15 @@ interface Message {
 
   interface ButtonProps {
     isLoading?: boolean;
-    text:string;
+    text?:string;
+    icon?:React.ReactNode | String;
     onClick?: () => void;
   }
 
   
 interface DisplayTextWithLineBreaksProps {
   text: string;
-  animationSpeed: number;
+  animationSpeed?: number;
 }
 
 interface TextEntryProps {

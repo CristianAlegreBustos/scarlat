@@ -11,4 +11,13 @@
   .recharged{
     animation: scale 0.8s ease-in-out infinite;
   }
+  .Wrapper_buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
   

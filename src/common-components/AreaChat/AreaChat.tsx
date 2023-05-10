@@ -39,7 +39,7 @@ const AreaChat = ({
       try {
         const response = await postQuestiontoOpenIA(
           inputMessage,
-          "personal_pay"
+          "Scarlet"
         );
         if (messages.length === 0) {
           // This is the first message in a new conversation

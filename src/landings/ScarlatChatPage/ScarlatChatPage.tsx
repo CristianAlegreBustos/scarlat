@@ -18,7 +18,8 @@ export default function ScarlatChatPage() {
     useState<number>(0);
 
   const handleFirstUserMessage = async (questions: string, answer: string) => {
-    const title = await fetchTitleformOpenAI(questions, answer);
+    const response = await fetchTitleformOpenAI(questions, answer);
+    const title=response.content
     setConversations((prevConversations) => [
       ...prevConversations,
       {
@@ -51,6 +52,7 @@ export default function ScarlatChatPage() {
   const handleHamburgerClick = () => {
     setShowHistory(!showHistory);
   };
+
   return (
     <div className={cn("w-full h-screen h-full flex", css.root)}>
       <div

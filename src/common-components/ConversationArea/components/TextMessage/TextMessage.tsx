@@ -75,7 +75,9 @@ const TextMessage = ({
       ) : (
         <div className="flex justify-between">
           {messageRole === "user" ? (
-            <div>{text}</div>
+            <DisplayTextWithLineBreaks
+            text={text}
+          />
           ) : (
             <DisplayTextWithLineBreaks
               text={text}
