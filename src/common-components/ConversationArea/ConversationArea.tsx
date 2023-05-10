@@ -18,52 +18,37 @@ const ConversationArea: React.FC<ConversationAreaProps> = ({
         css.dialogue
       )}
     >
-      {messages.map((message, index) => {
-        const isCode = isCodeMessage(message.content.text);
-        const extractedContent = extractCodeContent(message.content.text);
-        const { code, textBeforeCode, textAfterCode } = extractedContent;
+      {
+  messages.map((message, index) => {
+    const blocks = extractCodeContent(message.content.text);
 
-        if (isCode) {
-          return (
-            <div key={index}>
-              {textBeforeCode && (
-                <TextMessage
-                  key={`TextBeforeCode-${index}`}
-                  initialText={textBeforeCode}
-                  messageRole={message.role}
-                  setIsLoading={setIsLoading}
-                />
-              )}
-              <CodeMessage
-                key={`TextCode-${index}`}
-                code={code}
-                language={detectLanguage(code)}
-                messageRole={message.role}
-              />
-              {textAfterCode && (
-                <TextMessage
-                  key={`TextAfterCode-${index}`}
-                  initialText={textAfterCode}
-                  messageRole={message.role}
-                  setIsLoading={setIsLoading}
-                />
-              )}
-            </div>
-          );
-        } else {
-          return (
-            <TextMessage
-              key={`TextOnly-${index}`}
-              index={index}
-              initialText={message.content.text}
-              messageRole={message.role}
-              setIsLoading={setIsLoading}
-              setConversations={setConversations}
-              activeConversationIndex={activeConversationIndex}
-            />
-          );
-        }
-      })}
+    return blocks.map((block, blockIndex) => {
+      if (block.type === "code") {
+        return (
+          <CodeMessage
+            key={`TextCode-${index}-${blockIndex}`}
+            code={block.content}
+            language={detectLanguage(block.content)}
+            messageRole={message.role}
+          />
+        );
+      } else {
+        return (
+          <TextMessage
+            key={`TextOnly-${index}-${blockIndex}`}
+            index={index}
+            initialText={block.content}
+            messageRole={message.role}
+            setIsLoading={setIsLoading}
+            setConversations={setConversations}
+            activeConversationIndex={activeConversationIndex}
+          />
+        );
+      }
+    });
+  })
+}
+
     </div>
   );
 };

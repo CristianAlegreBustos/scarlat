@@ -47,8 +47,8 @@ const TextMessage = ({
     }
   };
 
-  const messageClassName = `mb-2 rounded px-3 py-2 static ${
-    messageRole === "user" ? "bg-blue-500" : "bg-white text-black"
+  const messageClassName = `rounded px-3 py-2 static ${
+    messageRole === "user" ? "bg-blue-500 mb-2 " : "bg-white text-black"
   }`;
 
   useEffect(() => {

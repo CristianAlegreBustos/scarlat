@@ -4,23 +4,38 @@ function isCodeMessage(text:string) {
   }
   
   function extractCodeContent(text: string) {
+    const blocks = [];
     const codeRegex = /```(?:\S+)?([\s\S]*?)```/gm;
-    const codeMatch = codeRegex.exec(text);
   
-    if (codeMatch) {
-      return {
-        textBeforeCode: codeMatch.index > 0 ? text.slice(0, codeMatch.index) : '',
-        code: codeMatch[1],
-        textAfterCode: codeMatch.index + codeMatch[0].length < text.length ? text.slice(codeMatch.index + codeMatch[0].length) : '',
-      };
+    let lastIndex = 0;
+    let codeMatch;
+  
+    while ((codeMatch = codeRegex.exec(text)) !== null) {
+      if (codeMatch.index > lastIndex) {
+        blocks.push({
+          type: "text",
+          content: text.slice(lastIndex, codeMatch.index),
+        });
+      }
+  
+      blocks.push({
+        type: "code",
+        content: codeMatch[1],
+      });
+  
+      lastIndex = codeRegex.lastIndex;
     }
   
-    return {
-      textBeforeCode: '',
-      code: '',
-      textAfterCode: '',
-    };
+    if (lastIndex < text.length) {
+      blocks.push({
+        type: "text",
+        content: text.slice(lastIndex),
+      });
+    }
+  
+    return blocks;
   }
+  
 
 
   export {isCodeMessage,extractCodeContent}

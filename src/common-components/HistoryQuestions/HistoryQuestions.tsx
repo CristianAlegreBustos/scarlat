@@ -13,7 +13,7 @@ const HistoryQuestions = ({
   return (
     <ul className={css.questions}>
       {conversations.map((conversation, index) => (
-        <li className={cn("relative", css.title)} key={index}>
+        <li className={cn("relative cursor-pointer", css.title)} key={index}>
           <input
             className="w-full bg-transparent text-white outline-none text-xl"
             defaultValue={conversation.title}
