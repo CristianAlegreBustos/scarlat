@@ -26,7 +26,7 @@ console.log(messages)
 
   const instruction = instructions[topic] || 'You are a general-purpose assistant.';
   const completion = await openai.createChatCompletion({
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-4',
     temperature: 0.5,
     messages: [
       {
@@ -35,6 +35,9 @@ console.log(messages)
       },
       ...messages,
     ],
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty:1,
   });
   console.log( completion.data.choices[0].message);
   res.json({

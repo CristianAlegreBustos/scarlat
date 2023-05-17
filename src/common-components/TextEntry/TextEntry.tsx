@@ -29,7 +29,7 @@ const TextEntry = ({ handleSendMessage,inputMessage, setInputMessage, isLoading,
     setRechargeLoading(true)
     const response = await postQuestiontoOpenIA(
      currentQuestion,
-      "Scarlet"
+      "Teacher"
     );
     updateNewConversations({
       action: "addRechargedAssistantMessage",

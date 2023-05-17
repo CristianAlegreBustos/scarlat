@@ -5,8 +5,7 @@ import postQuestiontoOpenIA from "@/utilities/postQuestionToOpenIA";
     answer: string,
   ) => {
     const titleResult = await postQuestiontoOpenIA(
-      `Por favor, sugiere un título adecuado para el tema de esta conversación, teniendo en cuenta la pregunta y la respuesta proporcionadas. La pregunta es: "${question}", y la respuesta es: "${answer}". Por favor, proporcione el título en el mismo idioma en que se hizo la pregunta.
-      Solo devuelve el titulo`,"language_detection"
+      `Provide a title for the text delimited by double double quotation marks. Use max 36 characteres: "${question}", "${answer}"`,""
     );
     return titleResult;
   };

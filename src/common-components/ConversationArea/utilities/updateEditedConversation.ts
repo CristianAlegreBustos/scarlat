@@ -8,7 +8,7 @@ export const updateEditedConversation = async (
     arg: (prevConversations: Conversation[]) => Conversation[]
   ) => void
 ) => {
-  const response = await postQuestiontoOpenIA(newText, "Scarlet");
+  const response = await postQuestiontoOpenIA(newText, "Teacher");
 
   setConversations((prevConversations) => {
     const newMessage = [...prevConversations];
